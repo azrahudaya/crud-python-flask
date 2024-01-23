@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Azra Hudaya 50423244 1IA01" />
+    <title>Tugas APB</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Tugas OOP AP 1B</h1>
+
+    <form action="/add" method="post">
+      <label for="new_name">Tambah Nama:</label>
+      <input type="text" id="new_name" name="new_name" required />
+      <button type="submit">Tambah</button>
+    </form>
+
+    <ul>
+      {% for name in names %}
+      <li>
+        {{ name }} <a href="{{ url_for('delete_name', name=name) }}">Hapus</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
